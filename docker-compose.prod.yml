@@ -1,0 +1,13 @@
+version: '3'
+services:
+  xopacks:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /ubuntu/home/xopacks/request-logs:/app/request-logs
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - ENV=prod

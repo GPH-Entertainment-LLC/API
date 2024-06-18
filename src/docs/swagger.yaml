@@ -1,0 +1,3695 @@
+basePath: /
+definitions:
+  controller.ErrorResponse:
+    properties:
+      errors:
+        items:
+          type: string
+        type: array
+    type: object
+  core.AddPackSuccessResp:
+    properties:
+      message:
+        type: string
+    type: object
+  core.AmountResp:
+    properties:
+      amount:
+        type: integer
+    type: object
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  model.AllEarningsPeriod:
+    properties:
+      earningType:
+        type: string
+      email:
+        type: string
+      endingPeriod:
+        type: string
+      payoutDate:
+        type: string
+      startingPeriod:
+        type: string
+      totalEarnings:
+        type: number
+      uid:
+        type: string
+    type: object
+  model.Category:
+    properties:
+      category:
+        type: string
+      id:
+        type: integer
+    type: object
+  model.CreatorEarningsPeriod:
+    properties:
+      earningType:
+        type: string
+      earnings:
+        type: number
+      email:
+        type: string
+      endingPeriod:
+        type: string
+      payoutDate:
+        type: string
+      startingPeriod:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.CustomerAnalytic:
+    properties:
+      amountSpent:
+        type: number
+      packsPurchased:
+        type: integer
+      username:
+        type: string
+    type: object
+  model.Faq:
+    properties:
+      active:
+        type: boolean
+      answer:
+        type: string
+      createdAt:
+        type: string
+      id:
+        type: integer
+      question:
+        type: string
+      removedAt:
+        type: string
+    type: object
+  model.Favorite:
+    properties:
+      favoritedAt:
+        type: string
+      id:
+        type: integer
+      uid:
+        type: string
+      vendorId:
+        type: string
+    type: object
+  model.Item:
+    properties:
+      active:
+        type: boolean
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      contentType:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      imageUrl:
+        type: string
+      name:
+        type: string
+      notify:
+        type: boolean
+      rarityId:
+        type: integer
+      updatedAt:
+        type: string
+      value:
+        type: number
+      vendorId:
+        type: string
+    type: object
+  model.ItemCategory:
+    properties:
+      categoryId:
+        type: integer
+      itemId:
+        type: integer
+    type: object
+  model.ItemWithdrawal:
+    properties:
+      fulfilledAt:
+        type: string
+      id:
+        type: integer
+      userItemId:
+        type: integer
+      withdrawnAt:
+        type: string
+    type: object
+  model.Pack:
+    properties:
+      active:
+        type: boolean
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      imageUrl:
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/model.Item'
+        type: array
+      openedAt:
+        type: string
+      ownerId:
+        type: string
+      packConfigId:
+        type: integer
+      packItemQty:
+        type: integer
+      purchasedAt:
+        type: string
+      title:
+        type: string
+      vendorId:
+        type: string
+    type: object
+  model.PackAnalyticsResp:
+    properties:
+      dataSet:
+        items:
+          $ref: '#/definitions/model.PackSalesAnalytic'
+        type: array
+      timeAxis:
+        items:
+          type: string
+        type: array
+    type: object
+  model.PackBoughtResp:
+    properties:
+      newBalance:
+        type: number
+      packIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  model.PackCategory:
+    properties:
+      categoryId:
+        type: integer
+      packConfigId:
+        type: integer
+    type: object
+  model.PackConfig:
+    properties:
+      active:
+        type: boolean
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      currentStock:
+        type: integer
+      deletedAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      imageUrl:
+        type: string
+      itemQty:
+        type: integer
+      qty:
+        type: integer
+      qtySold:
+        type: integer
+      releaseAt:
+        type: string
+      title:
+        type: string
+      tokenAmount:
+        type: number
+      updatedAt:
+        type: string
+      vendorId:
+        type: string
+    type: object
+  model.PackItemConfig:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: integer
+      itemId:
+        type: integer
+      packConfigId:
+        type: integer
+      qty:
+        type: integer
+      removedAt:
+        type: string
+    type: object
+  model.PackItemConfigExpanded:
+    properties:
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      contentType:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      itemQty:
+        type: integer
+      itemValue:
+        type: number
+      name:
+        type: string
+      rarity:
+        type: string
+      updatedAt:
+        type: string
+      vendorId:
+        type: string
+    type: object
+  model.PackQtySoldAnalytic:
+    properties:
+      packTitle:
+        type: string
+      qtySold:
+        type: integer
+    type: object
+  model.PackSalesAnalytic:
+    properties:
+      granularity:
+        type: string
+      qtySold:
+        type: integer
+      totalSales:
+        type: number
+    type: object
+  model.PageUserFavorite:
+    properties:
+      favoriteId:
+        type: integer
+      favoritedAt:
+        type: string
+      favoritesAmount:
+        type: integer
+      uid:
+        type: string
+      vendorActive:
+        type: boolean
+      vendorBannerUrl:
+        type: string
+      vendorBio:
+        type: string
+      vendorBirthday:
+        type: string
+      vendorCreatedAt:
+        type: string
+      vendorDisplayName:
+        type: string
+      vendorFavoritesAmount:
+        type: integer
+      vendorFirstName:
+        type: string
+      vendorId:
+        type: string
+      vendorLastName:
+        type: string
+      vendorMainUrl:
+        type: string
+      vendorPackAmount:
+        type: integer
+      vendorThumbUrl:
+        type: string
+      vendorUpdatedAt:
+        type: string
+      vendorUsername:
+        type: string
+    type: object
+  model.PageUserItem:
+    properties:
+      acquiredAt:
+        type: string
+      active:
+        type: boolean
+      categories:
+        items:
+          type: string
+        type: array
+      contentExpiredTime:
+        type: string
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      contentType:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      description:
+        type: string
+      expiredAt:
+        type: string
+      imageUrl:
+        type: string
+      itemId:
+        type: integer
+      name:
+        type: string
+      notify:
+        type: boolean
+      ownerId:
+        type: string
+      ranking:
+        type: integer
+      rarity:
+        type: string
+      rawCategories:
+        type: string
+      totalItemsAmount:
+        type: integer
+      updatedAt:
+        type: string
+      userItemId:
+        type: integer
+      value:
+        type: number
+      vendorActive:
+        type: boolean
+      vendorBannerUrl:
+        type: string
+      vendorBio:
+        type: string
+      vendorDisplayName:
+        type: string
+      vendorFavoritesAmount:
+        type: integer
+      vendorFirstName:
+        type: string
+      vendorId:
+        type: string
+      vendorImageUrl:
+        type: string
+      vendorLastName:
+        type: string
+      vendorMainUrl:
+        type: string
+      vendorThumbUrl:
+        type: string
+      vendorUsername:
+        type: string
+    type: object
+  model.PageUserPack:
+    properties:
+      categories:
+        items:
+          type: string
+        type: array
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      description:
+        type: string
+      imageUrl:
+        type: string
+      itemQty:
+        type: integer
+      latestPurchasedAt:
+        type: string
+      packAmount:
+        type: integer
+      packConfigId:
+        type: integer
+      packIds:
+        items:
+          type: integer
+        type: array
+      qty:
+        type: integer
+      rawCategories:
+        type: string
+      rawPackIds:
+        type: string
+      title:
+        type: string
+      tokenAmount:
+        type: number
+      totalPacksAmount:
+        type: integer
+      vendorActive:
+        type: boolean
+      vendorBannerUrl:
+        type: string
+      vendorBio:
+        type: string
+      vendorDisplayName:
+        type: string
+      vendorFavoritesAmount:
+        type: integer
+      vendorFirstName:
+        type: string
+      vendorId:
+        type: string
+      vendorImageUrl:
+        type: string
+      vendorLastName:
+        type: string
+      vendorMainUrl:
+        type: string
+      vendorThumbUrl:
+        type: string
+      vendorUsername:
+        type: string
+    type: object
+  model.PageUserTransactionHistory:
+    properties:
+      billedInitialPrice:
+        type: string
+      billedRecurringPrice:
+        type: string
+      bundleImageUrl:
+        type: string
+      clientAccnum:
+        type: string
+      clientSubacc:
+        type: string
+      currencyCode:
+        type: string
+      dollarAmount:
+        type: number
+      initialPeriod:
+        type: string
+      rebills:
+        type: string
+      recurringPeriod:
+        type: string
+      subsccriptionId:
+        type: string
+      tokenAmount:
+        type: number
+      tokenBundleId:
+        type: integer
+      tranDateTime:
+        type: string
+      transactionCount:
+        type: integer
+      transactionId:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.PageVendor:
+    properties:
+      active:
+        type: boolean
+      bannerUrl:
+        type: string
+      bio:
+        type: string
+      birthday:
+        type: string
+      categories:
+        items:
+          type: string
+        type: array
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      displayName:
+        type: string
+      favoritesAmount:
+        type: integer
+      firstName:
+        type: string
+      imageUrl:
+        type: string
+      isVendor:
+        type: boolean
+      lastName:
+        type: string
+      packAmount:
+        type: integer
+      rawCategories:
+        type: string
+      uid:
+        type: string
+      updatedAt:
+        type: string
+      username:
+        type: string
+      vendorAmount:
+        type: integer
+    type: object
+  model.PageVendorItem:
+    properties:
+      active:
+        type: boolean
+      categories:
+        items:
+          type: string
+        type: array
+      contentExpiredTime:
+        type: string
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      contentType:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      description:
+        type: string
+      imageUrl:
+        type: string
+      itemId:
+        type: integer
+      name:
+        type: string
+      notify:
+        type: boolean
+      ranking:
+        type: integer
+      rarity:
+        type: string
+      rawCategories:
+        type: string
+      totalItemsAmount:
+        type: integer
+      updatedAt:
+        type: string
+      value:
+        type: number
+      vendorActive:
+        type: boolean
+      vendorBannerUrl:
+        type: string
+      vendorBio:
+        type: string
+      vendorDisplayName:
+        type: string
+      vendorFavoritesAmount:
+        type: integer
+      vendorFirstName:
+        type: string
+      vendorId:
+        type: string
+      vendorImageUrl:
+        type: string
+      vendorLastName:
+        type: string
+      vendorMainUrl:
+        type: string
+      vendorThumbUrl:
+        type: string
+      vendorUsername:
+        type: string
+    type: object
+  model.PageVendorPack:
+    properties:
+      active:
+        type: boolean
+      categories:
+        items:
+          type: string
+        type: array
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      currentStock:
+        type: integer
+      deletedAt:
+        type: string
+      description:
+        type: string
+      imageUrl:
+        type: string
+      itemQty:
+        type: integer
+      packConfigId:
+        type: integer
+      qty:
+        type: integer
+      qtySold:
+        type: integer
+      rawCategories:
+        type: string
+      releaseAt:
+        type: string
+      title:
+        type: string
+      tokenAmount:
+        type: number
+      totalPacksAmount:
+        type: integer
+      updatedAt:
+        type: string
+      vendorActive:
+        type: boolean
+      vendorBannerUrl:
+        type: string
+      vendorBio:
+        type: string
+      vendorDisplayName:
+        type: string
+      vendorFavoritesAmount:
+        type: integer
+      vendorFirstName:
+        type: string
+      vendorId:
+        type: string
+      vendorImageUrl:
+        type: string
+      vendorLastName:
+        type: string
+      vendorMainUrl:
+        type: string
+      vendorThumbUrl:
+        type: string
+      vendorUsername:
+        type: string
+    type: object
+  model.ReferralCode:
+    properties:
+      active:
+        type: boolean
+      code:
+        type: string
+      createdAt:
+        type: string
+      removedAt:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.ReferralEarningsPeriod:
+    properties:
+      earningType:
+        type: string
+      earnings:
+        type: number
+      email:
+        type: string
+      endingPeriod:
+        type: string
+      payoutDate:
+        type: string
+      startingPeriod:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.Report:
+    properties:
+      active:
+        type: boolean
+      id:
+        type: integer
+      notes:
+        type: string
+      optId:
+        type: integer
+      reportedAt:
+        type: string
+      reportedUid:
+        type: string
+      resolvedAt:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.ReportExpanded:
+    properties:
+      active:
+        type: boolean
+      notes:
+        type: string
+      opt:
+        type: string
+      reportId:
+        type: integer
+      reportedAt:
+        type: string
+      reportedUid:
+        type: string
+      resolvedAt:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.ReportOpt:
+    properties:
+      active:
+        type: boolean
+      createdAt:
+        type: string
+      id:
+        type: integer
+      opt:
+        type: string
+      removedAt:
+        type: string
+    type: object
+  model.SignInLog:
+    properties:
+      id:
+        type: integer
+      ipAddr:
+        type: string
+      lastLogin:
+        type: string
+      uid:
+        type: string
+    type: object
+  model.TokenBalance:
+    properties:
+      balance:
+        type: number
+      id:
+        type: integer
+      uid:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  model.TokenBundle:
+    properties:
+      active:
+        type: boolean
+      bundleImageUrl:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      dollarAmount:
+        type: number
+      id:
+        type: integer
+      tokenAmount:
+        type: number
+    type: object
+  model.User:
+    properties:
+      active:
+        type: boolean
+      bannerImgVersion:
+        type: integer
+      bannerUrl:
+        type: string
+      bio:
+        type: string
+      birthday:
+        type: string
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      displayName:
+        type: string
+      email:
+        type: string
+      firstName:
+        type: string
+      imageUrl:
+        type: string
+      isVendor:
+        type: boolean
+      lastName:
+        type: string
+      lastUsernameChangeAt:
+        type: string
+      profileImgVersion:
+        type: integer
+      uid:
+        type: string
+      updatedAt:
+        type: string
+      username:
+        type: string
+    type: object
+  model.UserFavoritePage:
+    properties:
+      favoriteAmount:
+        type: integer
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageUserFavorite'
+        type: array
+      pageSize:
+        type: integer
+    type: object
+  model.UserItemPage:
+    properties:
+      earliestExpired:
+        type: integer
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageUserItem'
+        type: array
+      pageSize:
+        type: integer
+      userItemAmount:
+        type: integer
+    type: object
+  model.UserPackPage:
+    properties:
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageUserPack'
+        type: array
+      pageSize:
+        type: integer
+      userPackAmount:
+        type: integer
+    type: object
+  model.UserTransactionHistoryPage:
+    properties:
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageUserTransactionHistory'
+        type: array
+      pageSize:
+        type: integer
+      transactionAmount:
+        type: integer
+    type: object
+  model.Vendor:
+    properties:
+      active:
+        type: boolean
+      bannerImgVersion:
+        type: integer
+      bannerUrl:
+        type: string
+      bio:
+        type: string
+      birthday:
+        type: string
+      categories:
+        items:
+          type: string
+        type: array
+      contentMainUrl:
+        type: string
+      contentThumbUrl:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      displayName:
+        type: string
+      email:
+        type: string
+      favoritesAmount:
+        type: integer
+      firstName:
+        type: string
+      imageUrl:
+        type: string
+      isVendor:
+        type: boolean
+      lastName:
+        type: string
+      packAmount:
+        type: integer
+      profileImgVersion:
+        type: integer
+      rawCategories:
+        type: string
+      uid:
+        type: string
+      updatedAt:
+        type: string
+      username:
+        type: string
+    type: object
+  model.VendorApplication:
+    properties:
+      approvedAt:
+        type: string
+      aptNumber:
+        type: string
+      birthday:
+        type: string
+      city:
+        type: string
+      email:
+        type: string
+      firstName:
+        type: string
+      id:
+        type: integer
+      lastName:
+        type: string
+      notes:
+        type: string
+      phoneNumber:
+        type: string
+      referralCode:
+        type: string
+      rejectedAt:
+        type: string
+      socialLink1:
+        type: string
+      socialLink2:
+        type: string
+      socialLink3:
+        type: string
+      state:
+        type: string
+      status:
+        type: string
+      streetAddress:
+        type: string
+      submittedAt:
+        type: string
+      uid:
+        type: string
+      username:
+        type: string
+      zipCode:
+        type: string
+    type: object
+  model.VendorCategory:
+    properties:
+      categoryId:
+        type: integer
+      vendorId:
+        type: string
+    type: object
+  model.VendorCategoryExpanded:
+    properties:
+      category:
+        type: string
+      categoryId:
+        type: integer
+      vendorId:
+        type: string
+    type: object
+  model.VendorItemPage:
+    properties:
+      earliestExpired:
+        type: integer
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageVendorItem'
+        type: array
+      pageSize:
+        type: integer
+      vendorItemAmount:
+        type: integer
+    type: object
+  model.VendorPackPage:
+    properties:
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageVendorPack'
+        type: array
+      pageSize:
+        type: integer
+      vendorPackAmount:
+        type: integer
+    type: object
+  model.VendorPage:
+    properties:
+      nextPage:
+        type: integer
+      page:
+        items:
+          $ref: '#/definitions/model.PageVendor'
+        type: array
+      pageSize:
+        type: integer
+      vendorAmount:
+        type: integer
+    type: object
+host: apidev.xopacks.com
+info:
+  contact: {}
+  description: The official XOPAcks API
+  title: XOPacks API
+  version: "1.0"
+paths:
+  /admin/addFaq:
+    post:
+      consumes:
+      - application/json
+      description: Adds an faq to the list of active faq
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: faq
+        in: body
+        name: faq
+        required: true
+        schema:
+          $ref: '#/definitions/model.Faq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Faq'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add an faq
+      tags:
+      - Admin
+  /admin/approveVendor:
+    post:
+      consumes:
+      - application/json
+      description: Approve a vendors application and verify their account
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: creator uid
+        in: query
+        name: vendorUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorApplication'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Approve a new vendors application
+      tags:
+      - Admin
+  /admin/editFaq:
+    patch:
+      consumes:
+      - application/json
+      description: Changes the structure of an existing faq
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: faq id
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: faq patch map
+        in: body
+        name: faqPatch
+        required: true
+        schema:
+          $ref: '#/definitions/model.Faq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Edit an existing faq
+      tags:
+      - Admin
+  /admin/login:
+    post:
+      consumes:
+      - application/json
+      description: Authenticate and login to the admin dashboard
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Login as an admin
+      tags:
+      - Admin
+  /admin/rejectVendor:
+    post:
+      consumes:
+      - application/json
+      description: Reject a vendorss application
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: creator uid
+        in: query
+        name: vendorUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorApplication'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Reject a vendor application
+      tags:
+      - Admin
+  /admin/removeCreator:
+    delete:
+      consumes:
+      - application/json
+      description: Revoke a vendors verification
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: creator uid
+        in: query
+        name: vendorUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Remove a vendor
+      tags:
+      - Admin
+  /admin/removeFaq:
+    delete:
+      consumes:
+      - application/json
+      description: Remoe an faq from the active list
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: faq id
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Remove an faq
+      tags:
+      - Admin
+  /analytics/avgPacksPurchased/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get the average amount of packs purchased by a user at a time
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get average pack qty purchased
+      tags:
+      - Analytics
+  /analytics/customers/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of the top customers for a specific vendor
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.CustomerAnalytic'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get list of top customers
+      tags:
+      - Analytics
+  /analytics/favoriteAmount/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get the current favorite amount for this vendor
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get the favorite amount for vendor
+      tags:
+      - Analytics
+  /analytics/maxPacksPurchased/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get the max amount of packs purchased by a user at a time
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get the max pack qty purchased
+      tags:
+      - Analytics
+  /analytics/minPacksPurchased/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get the min amount of packs purchased by a user at a time
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get the min pack qty purchased
+      tags:
+      - Analytics
+  /analytics/packQtySold/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of packs and their qty sold
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.PackQtySoldAnalytic'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get the pack qty sold analytics
+      tags:
+      - Analytics
+  /analytics/packSales/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get pack sales analytics for a vendor
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      - description: time granularity
+        in: query
+        name: granularity
+        required: true
+        type: string
+      - description: month filter
+        in: query
+        name: month
+        required: true
+        type: integer
+      - description: year filter
+        in: query
+        name: year
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.PackAnalyticsResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get the pack sales analytics
+      tags:
+      - Analytics
+  /analytics/totalPacksSold/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get a total value of all packs sold by this vendor
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get total vendor packs sold
+      tags:
+      - Analytics
+  /analytics/totalRevenue/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get the total revenue generated by this vendor
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get total revenue
+      tags:
+      - Analytics
+  /application:
+    post:
+      consumes:
+      - application/json
+      description: A user submits a new vendor application
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorApplication'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Post a new vendor application
+      tags:
+      - Application
+  /categories/:category:
+    get:
+      consumes:
+      - application/json
+      description: Get list of specific categories
+      parameters:
+      - description: category param must be item,pack,or vendor
+        in: path
+        name: category
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Category'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get list of specific categories
+      tags:
+      - Category
+  /categories/all:
+    get:
+      consumes:
+      - application/json
+      description: Get list of all categories
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Category'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get list of all categories
+      tags:
+      - Category
+  /financial/allEarnings/:creatorUid:
+    get:
+      consumes:
+      - application/json
+      description: Get list of all earnings for creator
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.AllEarningsPeriod'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get list of all earnings
+      tags:
+      - Financial
+  /financial/creatorEarnings/:creatorUid:
+    get:
+      consumes:
+      - application/json
+      description: Get list of creator earnings for a creator
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.CreatorEarningsPeriod'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get list of creator earnings
+      tags:
+      - Financial
+  /financial/referralEarnings/:creatorUid:
+    get:
+      consumes:
+      - application/json
+      description: Get list of referral earnings for creator
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.ReferralEarningsPeriod'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get list of referral earnings
+      tags:
+      - Financial
+  /item:
+    post:
+      consumes:
+      - application/json
+      description: Save item record in DB
+      parameters:
+      - description: Item
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/model.Item'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.Item'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Create an item
+      tags:
+      - Item
+  /item/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve an item based on ID
+      parameters:
+      - description: Item ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Item'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get an item
+      tags:
+      - Item
+    patch:
+      consumes:
+      - application/json
+      description: Update an item with new patch
+      parameters:
+      - description: item patch to update
+        in: body
+        name: itemPatch
+        required: true
+        schema:
+          $ref: '#/definitions/model.Item'
+      - description: item id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Item'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Update an item
+      tags:
+      - Item
+  /item/categories:
+    post:
+      consumes:
+      - application/json
+      description: Associate categories to an item for a vendor
+      parameters:
+      - description: categories
+        in: body
+        name: categories
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/model.ItemCategory'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add item categories
+      tags:
+      - Item
+  /items:
+    delete:
+      consumes:
+      - application/json
+      description: Deactivate an item from the DB
+      parameters:
+      - description: item ids
+        in: query
+        name: ids
+        required: true
+        type: string
+      - description: vendor uid
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Delete an item
+      tags:
+      - Item
+  /items/user:
+    delete:
+      consumes:
+      - application/json
+      description: Deactivate user item records
+      parameters:
+      - description: user item ids
+        in: query
+        name: ids
+        required: true
+        type: string
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Remove user items
+      tags:
+      - Item
+  /log/signIn/:uid:
+    post:
+      consumes:
+      - application/json
+      description: Log a users sign in to persistent data store
+      parameters:
+      - description: uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.SignInLog'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Post a user sign in log
+      tags:
+      - Logging
+  /pack/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a joined 2 dimensional pack object with nested item list
+      parameters:
+      - description: pack id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Pack'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a pack
+      tags:
+      - Pack
+  /pack/buy:
+    post:
+      consumes:
+      - application/json
+      description: Associates a new set of x available packs with a user after purchasing
+      parameters:
+      - description: Pack Config ID
+        in: query
+        name: packConfigId
+        required: true
+        type: integer
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: amount of packs
+        in: query
+        name: amount
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.PackBoughtResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Buys a set of packs
+      tags:
+      - Pack
+  /pack/config:
+    patch:
+      consumes:
+      - application/json
+      description: Update a pack config
+      parameters:
+      - description: pack config id
+        in: query
+        name: packConfigId
+        required: true
+        type: integer
+      - description: vendor uid
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      - description: pack config patch map
+        in: body
+        name: patchMap
+        required: true
+        schema:
+          $ref: '#/definitions/model.PackConfig'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Patch a pack config
+      tags:
+      - Pack
+    post:
+      consumes:
+      - application/json
+      description: Save pack configuration record in DB
+      parameters:
+      - description: Pack Config
+        in: body
+        name: pack
+        required: true
+        schema:
+          $ref: '#/definitions/model.PackConfig'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.PackConfig'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Create a pack config
+      tags:
+      - Pack
+  /pack/config/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get a pack by id
+      parameters:
+      - description: Pack Config ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.PackConfig'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: get packs
+      tags:
+      - Pack
+  /pack/configs:
+    delete:
+      consumes:
+      - application/json
+      description: Soft delete pack configs and all item pack configs in DB
+      parameters:
+      - description: pack config ids
+        in: query
+        name: ids
+        required: true
+        type: string
+      - description: vendor id
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Delete a list of pack config
+      tags:
+      - Pack
+  /pack/deactivate:
+    delete:
+      consumes:
+      - application/json
+      description: Set an active false value without soft deleting a pack to make
+        pack private without release date to customers
+      parameters:
+      - description: pack config ids
+        in: query
+        name: ids
+        required: true
+        type: string
+      - description: vendor id
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Inactivate pack(s) from the marketplace
+      tags:
+      - Pack
+  /pack/generate:
+    post:
+      consumes:
+      - application/json
+      description: Add pack and item fact records to DB for logical pack stock quantities
+      parameters:
+      - description: Pack Config ID
+        in: query
+        name: packConfigId
+        required: true
+        type: integer
+      - description: vendor uid
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/core.AddPackSuccessResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Generate pack stock
+      tags:
+      - Pack
+  /pack/item/configs:
+    post:
+      consumes:
+      - application/json
+      description: Add pack item configs that determine how packs are built
+      parameters:
+      - description: Pack Item Configs
+        in: body
+        name: packItemConfigs
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/model.PackItemConfig'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/core.AddPackSuccessResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add pack item configs
+      tags:
+      - Pack
+  /pack/items/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of pack item configs
+      parameters:
+      - description: pack id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.PackItemConfigExpanded'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get pack item configs
+      tags:
+      - Pack
+  /pack/items/generateOdds:
+    post:
+      consumes:
+      - application/json
+      description: Given a list of items to distribute in a pack, return odds distribution
+        based on item rarities
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: vendor id
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Generate odds to use for pack item configurations
+      tags:
+      - Pack
+  /pack/items/preview/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of pack item configs preview
+      parameters:
+      - description: pack config id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: pack id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.PackItemConfigExpanded'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get pack item configs preview
+      tags:
+      - Pack
+  /pack/open/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Sets an opened date on the pack fact
+      parameters:
+      - description: pack fact id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Pack'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Open a pack
+      tags:
+      - Pack
+  /packs/amount/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a user packs amount
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/core.AmountResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get user pack amount
+      tags:
+      - Pack
+  /packs/categories:
+    post:
+      consumes:
+      - application/json
+      description: Associates a set of categories to a pack config
+      parameters:
+      - description: categories
+        in: body
+        name: categories
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/model.PackCategory'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add pack categories
+      tags:
+      - Pack
+  /referral/create:
+    post:
+      consumes:
+      - application/json
+      description: A creator can upload a new custom referral code to use for referring
+        new creators
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: referral code
+        in: query
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.ReferralCode'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Create a custom code referral code
+      tags:
+      - Referral
+  /referral/generate:
+    post:
+      consumes:
+      - application/json
+      description: A creator can generate a new referral code to use for referring
+        new creators
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.ReferralCode'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Generate a new referral code
+      tags:
+      - Referral
+  /referral/getActiveCodes:
+    get:
+      consumes:
+      - application/json
+      description: A creator can get a list of all active referral codes associated
+        with them
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.ReferralCode'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get all active codes that a creator has
+      tags:
+      - Referral
+  /referral/remove:
+    delete:
+      consumes:
+      - application/json
+      description: A creator can deactivate a referral code so it can no longer be
+        used
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: referral code
+        in: query
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Remove a referral code
+      tags:
+      - Referral
+  /report/opts:
+    get:
+      consumes:
+      - application/json
+      description: A user can get a list of the available report options
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.ReportOpt'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get active report options
+      tags:
+      - Report
+  /report/submit:
+    post:
+      consumes:
+      - application/json
+      description: A user can submit a report against another user
+      parameters:
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: report object
+        in: body
+        name: report
+        required: true
+        schema:
+          $ref: '#/definitions/model.Report'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.ReportExpanded'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Submit a new report
+      tags:
+      - Report
+  /token/balance/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a token balance for a user
+      parameters:
+      - description: bundle id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TokenBalance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a token balance
+      tags:
+      - Token
+    patch:
+      consumes:
+      - application/json
+      description: Update a users token balance
+      parameters:
+      - description: uid
+        in: path
+        name: uid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TokenBalance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Update a token balance
+      tags:
+      - Token
+  /token/bundle:
+    post:
+      consumes:
+      - application/json
+      description: Add a token bundle to the DB
+      parameters:
+      - description: dollar amount
+        in: query
+        name: dollarAmt
+        required: true
+        type: number
+      - description: token amount
+        in: query
+        name: tokenAmt
+        required: true
+        type: number
+      - description: bundle image id
+        in: query
+        name: bundleImageId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TokenBundle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add a token bundle
+      tags:
+      - Token
+  /token/bundle/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a token bundle by id
+      parameters:
+      - description: bundle id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TokenBundle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a token bundle
+      tags:
+      - Token
+  /token/bundles:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of current token bundles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.TokenBundle'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get token bundles
+      tags:
+      - Token
+  /token/bundles/price:
+    get:
+      consumes:
+      - application/json
+      description: Get a token bundles filtered by dollar amount
+      parameters:
+      - description: dollar amount
+        in: query
+        name: dollarAmt
+        required: true
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TokenBalance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a token bundles filtered by dollar amount
+      tags:
+      - Token
+  /token/bundles/priceRange:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of token bundles filtered on lower upper limits
+      parameters:
+      - description: lower dollar amount
+        in: query
+        name: lowerDollarAmt
+        required: true
+        type: number
+      - description: upper dollar amount
+        in: query
+        name: upperDollarAmt
+        required: true
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.TokenBundle'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a list of token bundles filtered on lower upper limits
+      tags:
+      - Token
+  /transaction/history/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of trnasactions that a user has executed
+      parameters:
+      - description: uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserTransactionHistoryPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a user transaction history page
+      tags:
+      - Transaction
+  /user:
+    delete:
+      consumes:
+      - application/json
+      description: Deactivates a user from the DB
+      parameters:
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: username
+        in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Delete a user
+      tags:
+      - User
+    patch:
+      consumes:
+      - application/json
+      description: Updates a user record in DB given a patch map
+      parameters:
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: username
+        in: query
+        name: username
+        required: true
+        type: string
+      - description: user patch map
+        in: body
+        name: userPatchMap
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Patch a user
+      tags:
+      - User
+    post:
+      consumes:
+      - application/json
+      description: Save user record in DB
+      parameters:
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Create a user
+      tags:
+      - User
+  /user/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Save a user record in DB
+      parameters:
+      - description: uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a user
+      tags:
+      - User
+  /user/favorite:
+    delete:
+      consumes:
+      - application/json
+      description: Add a vendor favorite record to a user
+      parameters:
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: vendor uid
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.Favorite'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add a user favorite
+      tags:
+      - User
+    get:
+      consumes:
+      - application/json
+      description: Get a favorite between user and vendor
+      parameters:
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: vendor uid
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Favorite'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a favorite
+      tags:
+      - User
+    post:
+      consumes:
+      - application/json
+      description: Add a vendor favorite record to a user
+      parameters:
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: vendor uid
+        in: query
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.Favorite'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add a user favorite
+      tags:
+      - User
+  /user/favorites/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get user favorites vendor page
+      parameters:
+      - description: vendor uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserFavoritePage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get user favorite page
+      tags:
+      - User
+  /user/item/withdrawal:
+    post:
+      consumes:
+      - application/json
+      description: Allows a user to withdrawal an item from their collection which
+        is externally fulfilled
+      parameters:
+      - description: uid
+        in: query
+        name: uid
+        required: true
+        type: string
+      - description: authorized uid
+        in: query
+        name: authorizedUid
+        required: true
+        type: string
+      - description: user item id
+        in: query
+        name: userItemId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.ItemWithdrawal'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Withdrawal a user item
+      tags:
+      - User
+  /user/items/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of items that a user has in their collections
+      parameters:
+      - description: vendor uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserItemPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get user collection item page
+      tags:
+      - User
+  /user/packs/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of packs that a user has in their collections
+      parameters:
+      - description: vendor uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserPackPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get user collection pack page
+      tags:
+      - User
+  /user/username/:username:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a user given the username
+      parameters:
+      - description: username
+        in: path
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a user by username
+      tags:
+      - User
+  /vendor/:uid:
+    get:
+      consumes:
+      - application/json
+      description: Get a vendor given the uid
+      parameters:
+      - description: uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Vendor'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get a vendor
+      tags:
+      - Vendor
+  /vendor/categories:
+    post:
+      consumes:
+      - application/json
+      description: Associates a set of categories to a vendor profile
+      parameters:
+      - description: categories
+        in: body
+        name: categories
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/model.VendorCategory'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add vendor categories
+      tags:
+      - Vendor
+  /vendor/categories/:vendorId:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of vendor categories
+      parameters:
+      - description: vendor uid
+        in: path
+        name: vendorId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.VendorCategoryExpanded'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get vendor categories
+      tags:
+      - Vendor
+  /vendor/items/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of item specific to a vendor to see what they have available
+        to make packs
+      parameters:
+      - description: vendor uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorItemPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get vendor item list page
+      tags:
+      - Vendor
+  /vendor/packs/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of packs specific to a vendor to see what they have
+        in stock
+      parameters:
+      - description: vendor uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorPackPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get vendor pack list page
+      tags:
+      - Vendor
+  /vendor/packs/profile/{uid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of packs that a vendor has on their profile which users
+        can see
+      parameters:
+      - description: vendor uid
+        in: path
+        name: uid
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorPackPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get vendor profile pack page
+      tags:
+      - Vendor
+  /vendors:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of vendors for a page
+      parameters:
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get vendor page
+      tags:
+      - Vendor
+  /vendors/packs:
+    get:
+      consumes:
+      - application/json
+      description: Get page of vendor shop packs
+      parameters:
+      - description: page number
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: sort by
+        in: query
+        name: sortBy
+        type: string
+      - description: sort direction
+        in: query
+        name: sortDir
+        type: string
+      - description: category filter
+        in: query
+        name: filterOn
+        type: string
+      - description: search string
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.VendorPackPage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Get vendor shop pack
+      tags:
+      - Vendor
+swagger: "2.0"
